@@ -1,0 +1,58 @@
+{
+  "name": "account",
+  "private": true,
+  "description": "A react application using react hooks and context API for account creation application",
+  "version": "1.0.0",
+  "author": "Asokumar Gurusamy",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "encoding": "^0.1.12",
+    "express": "^4.17.1",
+    "gatsby": "^2.19.7",
+    "gatsby-image": "^2.2.39",
+    "gatsby-plugin-manifest": "^2.2.39",
+    "gatsby-plugin-offline": "^3.0.32",
+    "gatsby-plugin-react-helmet": "^3.1.21",
+    "gatsby-plugin-sharp": "^2.4.3",
+    "gatsby-source-filesystem": "^2.1.46",
+    "gatsby-transformer-sharp": "^2.3.13",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.9.3",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^5.2.1",
+    "serverless-http": "^2.0.2"
+  },
+  "devDependencies": {
+    "netlify-lambda": "^1.6.3",
+    "prettier": "^1.19.1"
+  },
+  "keywords": [
+    "serverless",
+    "express",
+    "netlify",
+    "full stack on netlify",
+    "gatsby+netlify+serverless"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "postinstall": "netlify-lambda install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}
