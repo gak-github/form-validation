@@ -4,9 +4,9 @@ import axios from "axios";
 
 // Initial state
 const initialState = {
-  account: {},
+  account: {},      
   error: null,
-  loading: true,
+  loading: true
 };
 
 // Create context
