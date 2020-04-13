@@ -3,59 +3,52 @@ import { GlobalContext } from '../context/GlobalState';
 
 export default function Account() {
     const { createAccount } = useContext(GlobalContext);
-    const [ account, setAccount] = useState({});
-    const [error, setError] = useState({});
-
+    const [ state, setState] = useState({account: {}, error: {}});
+    const error = state.error;
+    const account = state.account;
     /* no-useless-escape */
     const emailReg =
         RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
 
     const updateAccount = (e) => {
         const { name, value, checked } = e.target;
-        let errors = {};
         switch (name) {
             case 'firstName':
-                errors[name] = value.length < 5 ? 'First Name must be 5 char long!': '';
+                error[name] = value.length < 5 ? 'First Name must be 5 char long!': '';
                 break;
             case 'lastName': 
-                errors[name] = value.length < 5 ? 'Last Name must be 5 char long!' : '';
+                error[name] = value.length < 5 ? 'Last Name must be 5 char long!' : '';
                 break;
             case 'email':
-                errors[name] = emailReg.test(value) ? '': 'Email is not valid!';
+                error[name] = emailReg.test(value) ? '': 'Email is not valid!';
                 break;
             case 'password':
-                errors[name] = value.length < 4 ? 'Password must be min 4 char long!': '';
+                error[name] = value.length < 4 ? 'Password must be min 4 char long!': '';
                 break;
             case 'userAgreement':
-                errors[name] = !e.target.checked ? 'Agreement must be accepted': '';
+                error[name] = !checked ? 'Agreement must be accepted': '';
+                break;    
             default:
                 break;
         }
 
-        if (Object.keys(errors).length > 0) {
-            setError({
-                ...error,
-                ...errors
-            });
-        }
-
         if (name === 'userAgreement') {
             let agreement = checked ? true : false;
-            setAccount({
-                ...account,
-                [name]: agreement
+            setState({
+                account: { ...account, [name]: agreement },
+                error
             });
             return;
         }
-        setAccount({
-            ...account,
-            [name]: value
+    
+        setState({
+            account: {...account, [name] : value},
+            error
         });
     };
-    const validateForm = (errors) => {
+    const validateForm = (error) => {
         let valid = true;
-        Object.keys(errors).forEach((val) => val.length > 0 && (valid = false));
-            
+        Object.keys(error).forEach((key) => error[key].length > 0 && (valid = false));
         return valid;
     };
     const handleSubmit = (e) => {
@@ -64,8 +57,7 @@ export default function Account() {
             return;
         }
         createAccount(account);
-        setAccount({});
-        setError({});
+        setState({ account: {}, error: {}});
     }
     return (
         <>

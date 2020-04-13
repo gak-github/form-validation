@@ -114,7 +114,63 @@ input[type="password"].inputError {
   outline: none;
 }
 
+.overlay {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
 
+.modal {
+  z-index: 80;
+  /* Everything below is optional styling */
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  max-height: 100%;
+  margin: 0 auto;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  padding: 5px;
+  border: 0;
+  -webkit-appearance: none;
+  background: rgb(13, 13, 131);
+  color: white;
+  cursor: pointer;
+  box-sizing: border-box;
+  display: flex;
+  margin-right: 0;
+  min-width: 50px;
+}
+
+button.modal-close:hover {
+  background-color:#db2269;
+  outline: none;
+}
+
+.modal-body {
+  padding: 20px 24px;
+  border-radius: 4px;
+  background-color: white;
+  overflow: auto;
+}
+
+button.modal-open {
+  margin: 10px auto;
+}
 
 @media (max-width: 320px) {
   .container {

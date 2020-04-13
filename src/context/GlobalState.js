@@ -32,7 +32,7 @@ export const GlobalProvider = ({ children }) => {
     } catch (error) {
       dispatch({
         type: "CREATE_ERROR",
-        payload: error.response.data.error,
+        payload: error.response.data.error
       })
     }
   }
@@ -43,7 +43,7 @@ export const GlobalProvider = ({ children }) => {
         account: state.account,
         error: state.error,
         loading: state.loading,
-        createAccount,
+        createAccount
       }}
     >
       {children}
