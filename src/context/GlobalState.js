@@ -5,7 +5,7 @@ import axios from "axios";
 // Initial state
 const initialState = {
   account: {},      
-  error: null,
+  error: {},
   loading: true
 };
 
@@ -18,6 +18,7 @@ export const GlobalProvider = ({ children }) => {
 
   // get video search results (videos)
   async function createAccount(account) {
+    console.log("========before calling server====");
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -40,6 +41,7 @@ export const GlobalProvider = ({ children }) => {
   return (
     <GlobalContext.Provider
       value={{
+        users: [],
         account: state.account,
         error: state.error,
         loading: state.loading,
