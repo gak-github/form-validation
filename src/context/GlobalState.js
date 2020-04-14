@@ -18,7 +18,6 @@ export const GlobalProvider = ({ children }) => {
 
   // get video search results (videos)
   async function createAccount(account) {
-    console.log("========before calling server====");
     const config = {
       headers: {
         "Content-Type": "application/json",
