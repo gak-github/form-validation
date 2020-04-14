@@ -18,7 +18,7 @@ export default function AccountModal() {
                 </button>
             </div>
             {open && <Modal open={open} setOpen={setOpen}>
-                <Account />
+                <Account setOpen={setOpen} />
             </Modal>}
         </>
     );

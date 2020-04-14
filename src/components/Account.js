@@ -4,13 +4,15 @@ import useForm from './hooks/useForm';
 import validate from '../validations';
 import { navigate } from '@reach/router';
 
-export default function Account() {
+export default function Account({setOpen}) {
     const { createAccount } = useContext(GlobalContext);
     let account = {},
         error = {};
     const callback = async () => {
-        console.log("===========callback=====");
         createAccount(account);
+        if (setOpen) {
+            setOpen(false);
+        }
         await navigate(`/modal`);
     };
 
