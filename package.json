@@ -6,7 +6,7 @@
   "author": "Asokumar Gurusamy",
   "dependencies": {
     "@reach/router": "^1.3.3",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.4",
     "encoding": "^0.1.12",
